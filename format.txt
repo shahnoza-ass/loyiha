@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int value) {
+        data = value;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+
+int main() {
+    Node* root = new Node(1);
+    Node* leftChild1 = new Node(2);
+    Node* rightChild1 = new Node(3);
+    Node* leftChild2 = new Node(4);
+    Node* rightChild2 = new Node(5);
+    Node* leftChild3 = new Node(6);
+    Node* rightChild3 = new Node(7);
+    Node* leftChild4 = new Node(8);
+    Node* rightChild4 = new Node(9);
+    Node* leftChild5 = new Node(10);
+
+    root->left = leftChild1;
+    root->right = rightChild1;
+
+    leftChild1->left = leftChild2;
+    leftChild1->right = rightChild2;
+
+    rightChild1->left = leftChild3;
+    rightChild1->right = rightChild3;
+
+    leftChild2->left = leftChild4;
+    leftChild2->right = rightChild4;
+
+    leftChild3->left = leftChild5;
+
+    cout << "Daraxt ildizi: " << root->data << endl;
+    cout << "Chap tugun: " << root->left->data << endl;
+    cout << "O`ng tugun: " << root->right->data << endl;
+    cout << "Chap tugunning chap tuguni: " << root->left->left->data << endl;
+    cout << "Chap tugunning o'ng tuguni: " << root->left->right->data << endl;
+    cout << "O`ng tugunning chap tuguni: " << root->right->left->data << endl;
+    cout << "O`ng tugunning o'ng tuguni: " << root->right->right->data << endl;
+    cout << "Chap tugunning chap tugunning chap tuguni: " << root->left->left->left->data << endl;
+    cout << "Chap tugunning chap tugunning o'ng tuguni: " << root->left->left->right->data << endl;
+    cout << "O`ng tugunning chap tugunning chap tuguni: " << root->right->left->left->data << endl;
+
+    return 0;
+}
